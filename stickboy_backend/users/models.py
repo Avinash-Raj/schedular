@@ -13,3 +13,15 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+    @property
+    def is_employee(self):
+        if self.groups.filter(name='employee').exists():
+            return True
+        return False
+
+    @property
+    def is_admin(self):
+        if self.groups.filter(name='admin').exists():
+            return True
+        return False

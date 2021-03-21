@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_yasg',
     'django_filters',
-    'users'
+    'users',
+    'schedules'
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,5 @@ USER_GROUPS = [
     'admin',
     'employee'
 ]
+
+SCHEDULE_SLOT_DURATION_IN_MINUTES = os.environ.get('SCHEDULE_SLOT_DURATION_IN_MINUTES', 30)

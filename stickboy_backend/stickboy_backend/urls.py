@@ -22,7 +22,7 @@ from drf_yasg import openapi
 
 api_urls = [
     path('users/', include('users.urls')),
-    # path('schedules/', include('schedules.urls')),
+    path('schedules/', include('schedules.urls')),
 ]
 
 schema_view = get_schema_view(
