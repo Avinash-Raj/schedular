@@ -120,3 +120,11 @@ class UserListSerializer(serializers.ModelSerializer):
         if not groups:
             return ''
         return groups[0].name
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    """
+    Serializer for password change endpoint.
+    """
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
