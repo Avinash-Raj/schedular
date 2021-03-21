@@ -1,0 +1,14 @@
+# docker-compose.yml
+version: '3.7'
+services:
+  backend:
+    build:
+      dockerfile: Dockerfile
+      context: ./stickboy_backend
+    command: "bash /code/entrypoint.sh"
+    volumes:
+      - ./stickboy_backend:/code
+    ports:
+      - "8000:8000"
+    environment: 
+      - SCHEDULE_SLOT_DURATION_IN_MINUTES=30
